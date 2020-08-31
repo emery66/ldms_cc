@@ -1,5 +1,9 @@
 # ldms_cc
 Oracle Coding Challenge
 
-I read through the challenge and had more questions than answers.   I have written scripts that would be run against the usual 3 environments - DEV, TEST & PROD.  I assumed, rightly or wrongly, that schema and tablespaces had been created and I have used a user call LIVE. 
-The 2 reports I wrote in SQL I would normally hang from a menu - with a generic parameter form called from the menu option. I haven't included SET MARKUP for xls, as this would be user preference. 
+I read through the challenge and had more questions than answers!  Initially I think I overcomplicated the exercise and brought my focus back to 'Quick Coding Challenge'.
+
+I have worked on some assumptions.  The schema and tablespaces have been created and there are db roles and users. 
+The functions and procedures could all belong to a 'Widgets' package.
+
+As far as testing is concerned I would normally hold all the code in Tortoise SVN and run it in 3 environments - DEV, TEST & PROD.  I would embed any DML scripts in a text file and spool the results to save in SVN.
