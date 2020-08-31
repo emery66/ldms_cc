@@ -1,27 +1,30 @@
+set verify off
+set termout off
 
-Set stuff on and off
-Define &1 is dept no
+def req_dept = '&1'
 
-Col a  heading ‘Employee Id’ format number
-Col b heading ‘Name’ format a100
-Col c heading ‘Job Title’ format a50
-Col d heading ‘Manager’ format a50 
-Col e heading ‘Salary’ format 999,999 
-Col f heading ‘Start Date’ format date
-Col g heading noprint dep_id new_value
+col deptid heading 'Dept Id' format 99999
+col deptname heading 'Dept Name' format a50
+Col empid heading ‘Employee|Id’ format 9999999999
+Col empname heading ‘Employee|Name’ format a100
+Col job heading ‘Job Title’ format a50
+Col man heading ‘Managed By’ format a50 
+Col sal heading ‘Salary’ format 999,999 
+Col sdte heading ‘Start Date’ format date
 
-Ttitle ‘Employees for ‘&depname’  Dept’  
+Ttitle ‘Employees for '&req_dept' Department'
 
-Select d.dept_name from departments d into dep_name where d.dept_id = &1;
-Select e.emp_id a,
-            e.emp_surname||’ ‘||e.emp_first_name b,
-            e.emp_job_title c,
-            m.emp_surname||’ ‘||,emp_first_name d,
-            e.emp_salary e,
-            e.emp_date_hired f
-
-from employees e, employees m
-where e.emp_dept_id = &1
+Select      d.dept_id deptid,
+            d.dept_name deptname,
+            e.emp_id empid,
+            e.emp_first_name||’ ‘||e.emp_surname empname,
+            e.emp_job_title job,
+            m.emp_first_name||’ ‘||,m.emp_surname man,
+            e.emp_salary sal,
+            e.emp_date_hired sdte
+from employees e, employees m, departments d
+where d.dept_id = e.emp_dept_id 
+and upper(d.dept_name) = upper('&req_dept')
 and e.emp_manager_id = m.emp_id
-order by e.emp_id;
+order by d.dept_id, e.emp_id;
 
