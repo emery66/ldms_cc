@@ -16,7 +16,7 @@ CREATE TABLE LIVE.EMPLOYEES(
     PRIMARY KEY(emp_id));
     
 CREATE TABLE LIVE.EMPLOYEE_HISTORY(
-    emph_id NUMBER(10) NOT NULL,
+    emph_emp_id NUMBER(10) NOT NULL,
     emph_job_title  VARCHAR2(50) NOT NULL,
     emph_manager_id(10) NUMBER,
     emph_start_date DATE NOT NULL,
