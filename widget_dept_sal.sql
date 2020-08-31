@@ -1,24 +1,16 @@
+col deptid heading 'Dept Id' format 99999
+col deptname heading 'Dept Name' format a50
+col totsal heading 'Sum Employee|Salary' format 999,999,999
 
-dept_sal.sql
-REM AS 31/08/20 sql to show sum employee sal for a dept 
+Ttitle ‘Total Employee Salary for '&req_dept' Department'
+Select      d.dept_id deptid,
+            d.dept_name deptname,
+            sum(e.emp_salary) totsal
+from employees e, departments d
+where d.dept_id = e.emp_dept_id 
+and upper(d.dept_name) = upper('&req_dept')
+group by d.dept_id, d.dept_name;
 
-Set stuff on and off
-Define req_dept is '&1'
-
-col dept
-Col  heading ‘Department’ format a50
-Col b heading ‘Sum Employee Salary’ format 999,999,999
-Col c heading noprint dep_id new_value
-
-Ttitle ‘Total Employees Salary for ‘&req_dept’ Department’  
-Select d.dept_name  a,
-            Sum(e.emp_salary) b 
-From departments d,
-           Employees e
-Where d.dept_id = &1
-And e.emp_dept_id = d.dept_id
-Group by d.dept_id;
- 
 
 
 
