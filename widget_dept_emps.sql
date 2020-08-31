@@ -26,5 +26,5 @@ from employees e, employees m, departments d
 where d.dept_id = e.emp_dept_id 
 and upper(d.dept_name) = upper('&req_dept')
 and e.emp_manager_id = m.emp_id
-order by d.dept_id, e.emp_id;
+order by e.emp_id;
 
