@@ -20,7 +20,7 @@ Col sdte heading ‘Start Date’ format date
 
 break on report
 
-spool dept_emps.lst
+spool widget_dept_emps.lst
 
 Ttitle ‘Employees for '&req_dept' Department'
 
