@@ -1,3 +1,8 @@
+-- AS 31/08/20 first write
+
+define req_dept = '&1'
+spool widget_dept_sal.lst
+
 col deptid heading 'Dept Id' format 99999
 col deptname heading 'Dept Name' format a50
 col totsal heading 'Sum Employee|Salary' format 999,999,999
@@ -11,7 +16,9 @@ where d.dept_id = e.emp_dept_id
 and upper(d.dept_name) = upper('&req_dept')
 group by d.dept_id, d.dept_name;
 
+spool off
 
+exit;
 
 
 
