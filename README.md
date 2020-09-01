@@ -5,7 +5,7 @@ I read through the challenge and had more questions than answers!  Initially I t
 
 I have worked on some assumptions.  The schema and tablespaces have been created and there are db roles and users, and that access to SQL is available through a front end tool.
 I am not sure whether the intention is to build and run this or just to review the code. IF it is to be built then the following steps need to be followed in a DEV environment.
-  1.  log on to SQL as a user with sufficient privs to create tables and run 'widgets_ddl.sql'
+  1.  log on to SQL as a user with sufficient privs to create tables and run 'widget_ddl.sql'
  
 
 The functions and procedures could all belong to a 'Widgets' package.
