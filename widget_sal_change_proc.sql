@@ -13,5 +13,7 @@ CREATE OR REPLACE PROCEDURE emp_sal_change(empid, perc, inc_or_dec)
         where e.emp_id = empid;
     END;
         
-        
+ GRANT EXECUTE on emp_sal_change to public;
+ 
+ commit;
  
