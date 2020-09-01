@@ -1,9 +1,15 @@
+SPOOL insert_widgets_data_AS.txt
+
+SELECT TO_CHAR(SYSDATE,'DD-MON-YYYY HH24:MI:SS'), USER, NAME
+FROM v$database;
+
+PROMPT Change...
+
 INSERT INTO DEPARTMENTS(dept_id,dept_name,dept_location) VALUES(1,’Management’,’London’);
 INSERT INTO DEPARTMENTS(dept_id,dept_name,dept_location) VALUES(2,’Engineering’,’Cardiff’);
 INSERT INTO DEPARTMENTS(dept_id,dept_name,dept_location) VALUES(3,’Research & Development’,’Edinburgh’);
 INSERT INTO DEPARTMENTS(dept_id,dept_name,dept_location) VALUES(4,’Sales’,’Belfast’);
 
-COMMIT;
 
 INSERT INTO EMPLOYEES(emp_id,emp_surname,emp_first_name,emp_date_hired,emp_date_entered,emp_entered_by,emp_job_title,emp_manager_id,emp_salary,emp_dept_id)
 VALUES(90001,’Smith’,’John’,’01-JAN-95’,trunc(sysdate),'Ali','CEO',' ',100000,1);
@@ -26,8 +32,13 @@ VALUES(90009,’Jones’,’Gus’,’15-MAY-18’,trunc(sysdate),'Ali','Manager
 INSERT INTO EMPLOYEES(emp_id,emp_surname,emp_first_name,emp_date_hired,emp_date_entered,emp_entered_by,emp_job_title,emp_manager_id,emp_salary,emp_dept_id)
 VALUES(90010,’Hall’,’Mildred’,’12-OCT-96’,trunc(sysdate),'Ali','Secretary',90001,35000,1);
 
-COMMIT;
 
+PROMPT after...
+
+select * from employees;
+select * from departments;
+
+PROMPT Commit data then spool off..
 
 
 
